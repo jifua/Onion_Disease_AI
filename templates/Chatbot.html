@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <!-- ===================================== -->
+    <!-- META -->
+    <!-- ===================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <!-- ===================================== -->
+    <!-- TITLE -->
+    <!-- ===================================== -->
+
+    <title>
+
+        OnionBot AI Platform
+
+    </title>
+
+    <!-- ===================================== -->
+    <!-- CSS -->
+    <!-- ===================================== -->
+
+    <link rel="stylesheet"
+          href="/static/style.css">
+
+    <!-- ===================================== -->
+    <!-- FONT AWESOME -->
+    <!-- ===================================== -->
+
+    <link rel="stylesheet"
+
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- ===================================== -->
+    <!-- GOOGLE FONT -->
+    <!-- ===================================== -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- ===================================== -->
+    <!-- BACKGROUND EFFECT -->
+    <!-- ===================================== -->
+
+    <div class="bg-circle circle1"></div>
+
+    <div class="bg-circle circle2"></div>
+
+    <div class="bg-circle circle3"></div>
+
+    <!-- ===================================== -->
+    <!-- MAIN CONTAINER -->
+    <!-- ===================================== -->
+
+    <div class="main-container">
+
+        <!-- ===================================== -->
+        <!-- NAVBAR -->
+        <!-- ===================================== -->
+
+        <nav class="top-navbar">
+
+            <!-- LOGO -->
+
+            <div class="navbar-left">
+
+                <img src="/static/logo.png"
+                     class="navbar-logo">
+
+                <div class="navbar-title">
+
+                    <h2>
+
+                        OnionBot AI
+
+                    </h2>
+
+                    <span>
+
+                        Smart Agriculture Platform
+
+                    </span>
+
+                </div>
+
+            </div>
+
+            <!-- NAVIGATION -->
+
+            <div class="navbar-right">
+
+                <a href="/">
+
+                    <i class="fas fa-home"></i>
+
+                    Home
+
+                </a>
+
+                <a href="/dashboard">
+
+                    <i class="fas fa-chart-line"></i>
+
+                    Dashboard
+
+                </a>
+
+                <a href="/history">
+
+                    <i class="fas fa-clock-rotate-left"></i>
+
+                    History
+
+                </a>
+
+                <a href="/about">
+
+                    <i class="fas fa-circle-info"></i>
+
+                    About
+
+                </a>
+
+            </div>
+
+        </nav>
+
+        <!-- ===================================== -->
+        <!-- HERO SECTION -->
+        <!-- ===================================== -->
+
+        <section class="hero-section">
+
+            <!-- HERO LEFT -->
+
+            <div class="hero-left">
+
+                <div class="hero-badge">
+
+                    🚀 AI Agriculture Startup
+
+                </div>
+
+                <h1>
+
+                    OnionBot AI Platform
+
+                </h1>
+
+                <p class="hero-description">
+
+                    Platform AI pertanian modern
+                    untuk membantu analisis penyakit,
+                    rekomendasi pestisida,
+                    budidaya bawang merah,
+                    hingga pencarian informasi pertanian
+                    berbasis AI dan semantic search.
+
+                </p>
+
+                <!-- AI STATUS -->
+
+                <div class="ai-status-box">
+
+                    <div class="status-indicator"></div>
+
+                    <span>
+
+                        AI Online
+
+                    </span>
+
+                </div>
+
+                <!-- QUICK STATS -->
+
+                <div class="quick-stats">
+
+                    <div class="stat-card">
+
+                        <h3>
+
+                            98%
+
+                        </h3>
+
+                        <span>
+
+                            AI Confidence
+
+                        </span>
+
+                    </div>
+
+                    <div class="stat-card">
+
+                        <h3>
+
+                            24/7
+
+                        </h3>
+
+                        <span>
+
+                            Smart Assistant
+
+                        </span>
+
+                    </div>
+
+                    <div class="stat-card">
+
+                        <h3>
+
+                            AI
+
+                        </h3>
+
+                        <span>
+
+                            Semantic Search
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- HERO RIGHT -->
+
+            <div class="hero-right">
+
+                <div class="robot-container">
+
+                    <div class="robot-circle"></div>
+
+                    <i class="fas fa-robot robot-icon"></i>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ===================================== -->
+        <!-- QUICK ACTION -->
+        <!-- ===================================== -->
+
+        <section class="quick-action-section">
+
+            <button onclick="askQuickQuestion('Apa itu fusarium?')">
+
+                <i class="fas fa-virus"></i>
+
+                Fusarium
+
+            </button>
+
+            <button onclick="askQuickQuestion('Cara mengatasi ulat bawang')">
+
+                <i class="fas fa-bug"></i>
+
+                Hama Ulat
+
+            </button>
+
+            <button onclick="askQuickQuestion('Pencegahan penyakit bawang merah')">
+
+                <i class="fas fa-shield"></i>
+
+                Pencegahan
+
+            </button>
+
+            <button onclick="askQuickQuestion('Budidaya bawang merah')">
+
+                <i class="fas fa-seedling"></i>
+
+                Budidaya
+
+            </button>
+
+            <button onclick="askQuickQuestion('Pestisida terbaik untuk bawang merah')">
+
+                <i class="fas fa-flask"></i>
+
+                Pestisida
+
+            </button>
+
+        </section>
+
+        <!-- ===================================== -->
+        <!-- CHATBOT SECTION -->
+        <!-- ===================================== -->
+
+        <section class="chatbot-section">
+
+            <!-- CHAT HEADER -->
+
+            <div class="chat-header">
+
+                <div class="chat-header-left">
+
+                    <div class="ai-avatar">
+
+                        🤖
+
+                    </div>
+
+                    <div>
+
+                        <h2>
+
+                            OnionBot AI
+
+                        </h2>
+
+                        <span>
+
+                            Smart Agriculture Assistant
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <!-- CHAT STATUS -->
+
+                <div class="chat-header-right">
+
+                    <div class="online-dot"></div>
+
+                    Online
+
+                </div>
+
+            </div>
+
+            <!-- CHAT BOX -->
+
+            <div class="chat-box"
+                 id="chat-box">
+
+                <!-- WELCOME CARD -->
+
+                <div class="welcome-card">
+
+                    <div class="welcome-icon">
+
+                        🌱
+
+                    </div>
+
+                    <h2>
+
+                        Selamat Datang di OnionBot
+
+                    </h2>
+
+                    <p>
+
+                        AI pertanian modern untuk
+                        membantu analisis penyakit,
+                        solusi budidaya,
+                        rekomendasi pestisida,
+                        dan informasi pertanian pintar.
+
+                    </p>
+
+                    <!-- FEATURE GRID -->
+
+                    <div class="feature-grid">
+
+                        <div class="feature-card">
+
+                            <i class="fas fa-virus"></i>
+
+                            <span>
+
+                                Disease Detection
+
+                            </span>
+
+                        </div>
+
+                        <div class="feature-card">
+
+                            <i class="fas fa-brain"></i>
+
+                            <span>
+
+                                Semantic AI
+
+                            </span>
+
+                        </div>
+
+                        <div class="feature-card">
+
+                            <i class="fas fa-globe"></i>
+
+                            <span>
+
+                                Internet Search
+
+                            </span>
+
+                        </div>
+
+                        <div class="feature-card">
+
+                            <i class="fas fa-seedling"></i>
+
+                            <span>
+
+                                Smart Farming
+
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ===================================== -->
+            <!-- INPUT AREA -->
+            <!-- ===================================== -->
+
+            <form id="chat-form"
+                  class="chat-input-wrapper">
+
+                <div class="input-container">
+
+                    <input type="text"
+                           id="user-input"
+
+                           placeholder="Tanyakan tentang penyakit bawang merah..."
+
+                           autocomplete="off"
+
+                           required>
+
+                    <!-- ACTION BUTTON -->
+
+                    <button type="submit"
+                            class="send-button">
+
+                        <i class="fas fa-paper-plane"></i>
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </div>
+
+    
+    <!-- ===================================== -->
+    <!-- JAVASCRIPT -->
+    <!-- ===================================== -->
+
+    <script>
+
+        // =====================================
+        // ELEMENTS
+        // =====================================
+
+        const form = document.getElementById(
+
+            "chat-form"
+
+        );
+
+        const input = document.getElementById(
+
+            "user-input"
+
+        );
+
+        const chatBox = document.getElementById(
+
+            "chat-box"
+
+        );
+
+        // =====================================
+        // QUICK QUESTION
+        // =====================================
+
+        function askQuickQuestion(question) {
+
+            input.value = question;
+
+            form.dispatchEvent(
+
+                new Event("submit")
+
+            );
+
+        }
+
+        // =====================================
+        // AUTO SCROLL
+        // =====================================
+
+        function autoScroll() {
+
+            chatBox.scrollTop =
+
+                chatBox.scrollHeight;
+
+        }
+
+        // =====================================
+        // RENDER THINKING STEP
+        // =====================================
+
+        function renderThinkingSteps(steps) {
+
+            if (!steps || steps.length === 0) {
+
+                return "";
+
+            }
+
+            return `
+
+                <div class="thinking-container">
+
+                    ${steps.map(step => `
+
+                        <div class="thinking-step">
+
+                            ${step}
+
+                        </div>
+
+                    `).join("")}
+
+                </div>
+
+            `;
+
+        }
+
+        // =====================================
+        // RENDER LIST
+        // =====================================
+
+        function renderList(title, items) {
+
+            if (!items || items.length === 0) {
+
+                return "";
+
+            }
+
+            return `
+
+                <div class="response-section">
+
+                    <h3>
+
+                        ${title}
+
+                    </h3>
+
+                    <ul>
+
+                        ${items.map(item => `
+
+                            <li>
+
+                                ${item}
+
+                            </li>
+
+                        `).join("")}
+
+                    </ul>
+
+                </div>
+
+            `;
+
+        }
+
+        // =====================================
+        // RENDER SOURCE
+        // =====================================
+
+        function renderSources(sources) {
+
+            if (!sources || sources.length === 0) {
+
+                return "";
+
+            }
+
+            return `
+
+                <div class="source-container">
+
+                    ${sources.map(source => `
+
+                        <div class="source-badge">
+
+                            🌐 ${source}
+
+                        </div>
+
+                    `).join("")}
+
+                </div>
+
+            `;
+
+        }
+
+        // =====================================
+        // RENDER SUGGESTION CHIP
+        // =====================================
+
+        function renderSuggestions(suggestions) {
+
+            if (!suggestions ||
+
+                suggestions.length === 0) {
+
+                return "";
+
+            }
+
+            return `
+
+                <div class="suggestion-container">
+
+                    ${suggestions.map(
+
+                        suggestion => `
+
+                        <button
+
+                            class="suggestion-chip"
+
+                            onclick="askQuickQuestion('${suggestion}')"
+
+                        >
+
+                            ${suggestion}
+
+                        </button>
+
+                    `).join("")}
+
+                </div>
+
+            `;
+
+        }
+
+        // =====================================
+        // RENDER IMAGE
+        // =====================================
+
+        function renderImage(image) {
+
+            if (!image) {
+
+                return "";
+
+            }
+
+            return `
+
+                <div class="response-image-container">
+
+                    <img src="${image}"
+
+                         class="response-image">
+
+                </div>
+
+            `;
+
+        }
+
+        // =====================================
+        // CONFIDENCE COLOR
+        // =====================================
+
+        function confidenceColor(value) {
+
+            if (value >= 90) {
+
+                return "#00cc66";
+
+            }
+
+            if (value >= 75) {
+
+                return "#ffb300";
+
+            }
+
+            return "#ff4d4d";
+
+        }
+
+        // =====================================
+        // RENDER CONFIDENCE
+        // =====================================
+
+        function renderConfidence(confidence) {
+
+            return `
+
+                <div class="confidence-wrapper">
+
+                    <div class="confidence-text">
+
+                        AI Confidence
+
+                    </div>
+
+                    <div class="confidence-bar">
+
+                        <div class="confidence-fill"
+
+                             style="
+
+                             width:${confidence}%;
+
+                             background:${confidenceColor(confidence)}
+
+                             ">
+
+                        </div>
+
+                    </div>
+
+                    <div class="confidence-value">
+
+                        ${confidence}%
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+
+        // =====================================
+        // CATEGORY BADGE
+        // =====================================
+
+        function renderCategory(category, icon) {
+
+            return `
+
+                <div class="category-badge">
+
+                    ${icon}
+
+                    ${category}
+
+                </div>
+
+            `;
+
+        }
+
+        // =====================================
+        // RESPONSE CARD ENGINE
+        // =====================================
+
+        function renderBotCard(data) {
+
+            return `
+
+            <div class="bot-card">
+
+                <!-- TOP -->
+
+                <div class="bot-card-top">
+
+                    ${renderCategory(
+
+                        data.category,
+
+                        data.icon
+
+                    )}
+
+                    ${renderConfidence(
+
+                        data.confidence
+
+                    )}
+
+                </div>
+
+                <!-- TITLE -->
+
+                <div class="bot-card-title">
+
+                    ${data.title}
+
+                </div>
+
+                <!-- IMAGE -->
+
+                ${renderImage(
+
+                    data.image
+
+                )}
+
+                <!-- DESCRIPTION -->
+
+                <div class="bot-description">
+
+                    ${data.description}
+
+                </div>
+
+                <!-- SYMPTOMS -->
+
+                ${renderList(
+
+                    "⚠️ Gejala",
+
+                    data.symptoms
+
+                )}
+
+                <!-- PREVENTION -->
+
+                ${renderList(
+
+                    "🛡️ Pencegahan",
+
+                    data.prevention
+
+                )}
+
+                <!-- RECOMMENDATION -->
+
+                ${renderList(
+
+                    "💊 Rekomendasi",
+
+                    data.recommendation
+
+                )}
+
+                <!-- SOURCE -->
+
+                ${renderSources(
+
+                    data.source
+
+                )}
+
+                <!-- SUGGESTION -->
+
+                ${renderSuggestions(
+
+                    data.suggestions
+
+                )}
+
+            </div>
+
+            `;
+
+        }
+
+        // =====================================
+        // USER MESSAGE
+        // =====================================
+
+        function renderUserMessage(message) {
+
+            return `
+
+                <div class="user-message">
+
+                    ${message}
+
+                </div>
+
+            `;
+
+        }
+
+        // =====================================
+        // TYPING MESSAGE
+        // =====================================
+
+        function renderTypingMessage() {
+
+            return `
+
+                <div class="typing-container"
+
+                     id="typing">
+
+                    <div class="typing-header">
+
+                        🤖 OnionBot AI
+
+                    </div>
+
+                    <div class="typing-animation">
+
+                        <span></span>
+
+                        <span></span>
+
+                        <span></span>
+
+                    </div>
+
+                    <div class="typing-text">
+
+                        Menganalisis pertanyaan...
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+
+        // =====================================
+        // ERROR CARD
+        // =====================================
+
+        function renderErrorCard() {
+
+            return `
+
+                <div class="error-card">
+
+                    <div class="error-icon">
+
+                        ⚠️
+
+                    </div>
+
+                    <div>
+
+                        Terjadi kesalahan koneksi
+                        dengan AI Engine.
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+
+        // =====================================
+        // LOADING TEXT ENGINE
+        // =====================================
+
+        const loadingMessages = [
+
+            "🔍 Menganalisis penyakit tanaman...",
+
+            "📚 Mencari basis pengetahuan...",
+
+            "🌐 Mengakses sumber terpercaya...",
+
+            "🤖 Menyusun rekomendasi AI...",
+
+            "🧠 Menjalankan semantic search...",
+
+            "🌱 Menyiapkan solusi pertanian..."
+
+        ];
+
+        // =====================================
+        // RANDOM LOADING MESSAGE
+        // =====================================
+
+        function randomLoadingMessage() {
+
+            return loadingMessages[
+
+                Math.floor(
+
+                    Math.random()
+
+                    * loadingMessages.length
+
+                )
+
+            ];
+
+        }
+
+        // =====================================
+        // UPDATE TYPING TEXT
+        // =====================================
+
+        function updateTypingText() {
+
+            const typingText =
+
+                document.querySelector(
+
+                    ".typing-text"
+
+                );
+
+            if (typingText) {
+
+                typingText.innerHTML =
+
+                    randomLoadingMessage();
+
+            }
+
+        }
+
+        // =====================================
+        // CHAT FORM SUBMIT
+        // =====================================
+
+        form.addEventListener(
+
+            "submit",
+
+            async (e) => {
+
+                e.preventDefault();
+
+                // =================================
+                // USER MESSAGE
+                // =================================
+
+                const userMessage =
+
+                    input.value.trim();
+
+                if (!userMessage) return;
+
+                // =================================
+                // RENDER USER MESSAGE
+                // =================================
+
+                chatBox.innerHTML +=
+
+                    renderUserMessage(
+
+                        userMessage
+
+                    );
+
+                // =================================
+                // RESET INPUT
+                // =================================
+
+                input.value = "";
+
+                // =================================
+                // SHOW TYPING
+                // =================================
+
+                chatBox.innerHTML +=
+
+                    renderTypingMessage();
+
+                autoScroll();
+
+                // =================================
+                // ANIMATION UPDATE
+                // =================================
+
+                const typingInterval =
+
+                    setInterval(
+
+                        updateTypingText,
+
+                        1200
+
+                    );
+
+                try {
+
+                    // =============================
+                    // FETCH API
+                    // =============================
+
+                    const response =
+
+                        await fetch(
+
+                            "/chatbot-api",
+
+                            {
+
+                                method: "POST",
+
+                                headers: {
+
+                                    "Content-Type":
+
+                                    "application/json"
+
+                                },
+
+                                body: JSON.stringify({
+
+                                    message: userMessage
+
+                                })
+
+                            }
+
+                        );
+
+                    // =============================
+                    // JSON
+                    // =============================
+
+                    const data =
+
+                        await response.json();
+
+                    // =============================
+                    // REMOVE TYPING
+                    // =============================
+
+                    clearInterval(
+
+                        typingInterval
+
+                    );
+
+                    document.getElementById(
+
+                        "typing"
+
+                    ).remove();
+
+                    // =============================
+                    // RENDER BOT CARD
+                    // =============================
+
+                    chatBox.innerHTML +=
+
+                        renderBotCard(
+
+                            data
+
+                        );
+
+                    autoScroll();
+
+                }
+
+                catch (error) {
+
+                    // =============================
+                    // REMOVE TYPING
+                    // =============================
+
+                    clearInterval(
+
+                        typingInterval
+
+                    );
+
+                    document.getElementById(
+
+                        "typing"
+
+                    ).remove();
+
+                    // =============================
+                    // ERROR CARD
+                    // =============================
+
+                    chatBox.innerHTML +=
+
+                        renderErrorCard();
+
+                    autoScroll();
+
+                    console.error(error);
+
+                }
+
+            }
+
+        );
+
+        // =====================================
+        // ENTER KEY SHORTCUT
+        // =====================================
+
+        input.addEventListener(
+
+            "keypress",
+
+            function(event) {
+
+                if (event.key === "Enter") {
+
+                    form.dispatchEvent(
+
+                        new Event("submit")
+
+                    );
+
+                }
+
+            }
+
+        );
+
+        // =====================================
+        // AUTO FOCUS INPUT
+        // =====================================
+
+        window.onload = () => {
+
+            input.focus();
+
+        };
+
+        // =====================================
+        // FAKE AI STARTUP
+        // =====================================
+
+        console.log(`
+
+=================================================
+🌱 ONIONBOT AI PLATFORM
+=================================================
+
+🤖 Smart Agriculture AI
+🚀 Mini RAG Architecture
+🧠 Semantic Search Enabled
+🌐 Internet Search Enabled
+📚 Knowledge Base Connected
+
+=================================================
+
+        `);
+
+        // =====================================
+        // AI ACTIVE EFFECT
+        // =====================================
+
+        setInterval(() => {
+
+            const onlineDot =
+
+                document.querySelector(
+
+                    ".online-dot"
+
+                );
+
+            if (onlineDot) {
+
+                onlineDot.classList.toggle(
+
+                    "online-pulse"
+
+                );
+
+            }
+
+        }, 1500);
+
+        // =====================================
+        // SCROLL ANIMATION
+        // =====================================
+
+        window.addEventListener(
+
+            "scroll",
+
+            () => {
+
+                const navbar =
+
+                    document.querySelector(
+
+                        ".top-navbar"
+
+                    );
+
+                if (window.scrollY > 20) {
+
+                    navbar.classList.add(
+
+                        "navbar-scrolled"
+
+                    );
+
+                }
+
+                else {
+
+                    navbar.classList.remove(
+
+                        "navbar-scrolled"
+
+                    );
+
+                }
+
+            }
+
+        );
+
+        // =====================================
+        // RANDOM HERO GLOW
+        // =====================================
+
+        setInterval(() => {
+
+            const robotCircle =
+
+                document.querySelector(
+
+                    ".robot-circle"
+
+                );
+
+            if (robotCircle) {
+
+                robotCircle.classList.toggle(
+
+                    "robot-glow"
+
+                );
+
+            }
+
+        }, 3000);
+
+        // =====================================
+        // SYSTEM INFO
+        // =====================================
+
+        const onionSystem = {
+
+            ai: "OnionBot AI",
+
+            version: "Final 3X",
+
+            architecture: "Mini RAG",
+
+            frontend: "Glassmorphism",
+
+            backend: "FastAPI",
+
+            developer: "Dayfi AI Labs"
+
+        };
+
+        console.table(onionSystem);
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <!-- ===================================== -->
+    <!-- META -->
+    <!-- ===================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+
+
+    <!-- ===================================== -->
+    <!-- TITLE -->
+    <!-- ===================================== -->
+
+    <title>Riwayat Prediksi AI</title>
+
+
+
+    <!-- ===================================== -->
+    <!-- CSS -->
+    <!-- ===================================== -->
+
+    <link rel="stylesheet"
+          href="/static/style.css">
+
+
+
+    <!-- ===================================== -->
+    <!-- FONT AWESOME -->
+    <!-- ===================================== -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+
+
+<body>
+
+
+    <!-- ===================================== -->
+    <!-- BACKGROUND EFFECT -->
+    <!-- ===================================== -->
+
+    <div class="bg-circle circle1"></div>
+
+    <div class="bg-circle circle2"></div>
+
+
+
+    <!-- ===================================== -->
+    <!-- MAIN CONTAINER -->
+    <!-- ===================================== -->
+
+    <div class="container">
+
+
+
+        <!-- ================================= -->
+        <!-- NAVBAR -->
+        <!-- ================================= -->
+
+        <nav class="top-nav">
+
+            <!-- Logo -->
+            <div class="nav-Logo">
+
+                <img src="/static/Logo.png"
+                     alt="Onion AI Logo"
+                     class="navbar-logo">
+
+            </div>
+
+
+
+            <!-- Navigation -->
+            <div class="nav-links">
+
+                <a href="/">
+
+                    <i class="fas fa-house"></i>
+                    Home
+
+                </a>
+
+                <a href="/history">
+
+                    <i class="fas fa-clock-rotate-left"></i>
+                    History
+
+                </a>
+
+                <a href="/dashboard">
+
+                    <i class="fas fa-chart-column"></i>
+                    Dashboard
+
+                </a>
+
+            </div>
+
+        </nav>
+
+
+
+        <!-- ================================= -->
+        <!-- PAGE HEADER -->
+        <!-- ================================= -->
+
+        <section class="hero-section">
+
+
+            <!-- Logo -->
+            <div class="logo">
+
+                <i class="fas fa-clock-rotate-left"></i>
+
+            </div>
+
+
+
+            <!-- Title -->
+            <h1>
+
+                Riwayat <br>
+                Prediksi AI
+
+            </h1>
+
+
+
+            <!-- Description -->
+            <p class="description">
+
+                Lihat seluruh riwayat deteksi penyakit daun bawang merah,
+                confidence score AI, gambar yang diupload,
+                serta waktu prediksi secara lengkap.
+
+            </p>
+
+        </section>
+
+
+
+        <!-- ================================= -->
+        <!-- HISTORY STATS -->
+        <!-- ================================= -->
+
+        <section class="history-stats">
+
+            <div class="stat-card">
+
+                <i class="fas fa-database"></i>
+
+                <h3>
+
+                    {{ rows|length }}
+
+                </h3>
+
+                <p>Total Prediksi</p>
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+                <i class="fas fa-brain"></i>
+
+                <h3>AI System</h3>
+
+                <p>Prediction History</p>
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+                <i class="fas fa-leaf"></i>
+
+                <h3>Onion AI</h3>
+
+                <p>Disease Monitoring</p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================================= -->
+        <!-- HISTORY TABLE -->
+        <!-- ================================= -->
+
+        <section class="history-wrapper">
+
+            <div class="history-header">
+
+                <h2>
+
+                    <i class="fas fa-table"></i>
+
+                    Database Riwayat Prediksi
+
+                </h2>
+
+            </div>
+
+
+
+            <div class="table-container">
+
+                <table class="history-table">
+
+
+
+                    <!-- TABLE HEADER -->
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+
+                            <th>Penyakit</th>
+
+                            <th>Confidence</th>
+
+                            <th>Gambar</th>
+
+                            <th>Tanggal</th>
+
+                        </tr>
+
+                    </thead>
+
+
+
+                    <!-- TABLE BODY -->
+                    <tbody>
+
+                        {% for row in rows %}
+
+                        <tr>
+
+
+
+                            <!-- ID -->
+                            <td>
+
+                                <div class="id-badge">
+
+                                    #{{ row[0] }}
+
+                                </div>
+
+                            </td>
+
+
+
+                            <!-- Disease -->
+                            <td>
+
+                                <div class="disease-badge">
+
+                                    <i class="fas fa-virus"></i>
+
+                                    {{ row[1] }}
+
+                                </div>
+
+                            </td>
+
+
+
+                            <!-- Confidence -->
+                            <td>
+
+                                <div class="confidence-badge">
+
+                                    <i class="fas fa-chart-line"></i>
+
+                                    {{ row[2] }}%
+
+                                </div>
+
+                            </td>
+
+
+
+                            <!-- Image -->
+                            <td>
+
+                                <div class="history-image-wrapper">
+
+                                    <img src="/{{ row[3] }}"
+                                         alt="Prediction Image"
+                                         class="history-image">
+
+                                </div>
+
+                            </td>
+
+
+
+                            <!-- Date -->
+                            <td>
+
+                                <div class="date-badge">
+
+                                    <i class="fas fa-calendar"></i>
+
+                                    {{ row[4] }}
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================================= -->
+        <!-- EMPTY STATE -->
+        <!-- ================================= -->
+
+        {% if rows|length == 0 %}
+
+        <section class="empty-history">
+
+            <i class="fas fa-folder-open"></i>
+
+            <h2>
+
+                Belum Ada Riwayat Prediksi
+
+            </h2>
+
+            <p>
+
+                Upload gambar daun bawang merah terlebih dahulu
+                untuk mulai menggunakan sistem AI deteksi penyakit.
+
+            </p>
+
+        </section>
+
+        {% endif %}
+
+
+
+        <!-- ================================= -->
+        <!-- FOOTER -->
+        <!-- ================================= -->
+
+        <footer class="footer">
+
+            <i class="fas fa-database"></i>
+
+            Onion Disease Detection AI • Prediction History Database
+
+        </footer>
+
+
+
+    </div>
+
+</body>
+
+</html>

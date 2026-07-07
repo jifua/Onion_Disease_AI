@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <!-- ===================================== -->
+    <!-- META -->
+    <!-- ===================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <!-- ===================================== -->
+    <!-- TITLE -->
+    <!-- ===================================== -->
+
+    <title>Onion Disease Detection AI</title>
+
+    <!-- ===================================== -->
+    <!-- MAIN CSS -->
+    <!-- ===================================== -->
+
+    <link rel="stylesheet"
+          href="/static/style.css">
+
+    <!-- ===================================== -->
+    <!-- FONT AWESOME -->
+    <!-- ===================================== -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- ===================================== -->
+    <!-- BACKGROUND EFFECT -->
+    <!-- ===================================== -->
+
+    <div class="bg-circle circle1"></div>
+
+    <div class="bg-circle circle2"></div>
+
+    <!-- ===================================== -->
+    <!-- MAIN CONTAINER -->
+    <!-- ===================================== -->
+
+    <div class="container">
+
+        <!-- ================================= -->
+        <!-- TOP NAVIGATION -->
+        <!-- ================================= -->
+
+        <nav class="top-nav">
+
+            <!-- LOGO -->
+            <div class="nav-logo">
+
+                <img
+                    src="/static/Logo.png"
+                    alt="Onion AI Logo"
+                    class="navbar-logo">
+
+            </div>
+
+            <!-- NAVIGATION -->
+            <div class="nav-links">
+
+                <a href="/">
+
+                    <i class="fas fa-house"></i>
+
+                    Home
+
+                </a>
+
+                <a href="/history">
+
+                    <i class="fas fa-clock-rotate-left"></i>
+
+                    History
+
+                </a>
+
+                <a href="/dashboard">
+
+                    <i class="fas fa-chart-simple"></i>
+
+                    Dashboard
+
+                </a>
+
+                <!-- LOGIN -->
+
+                <a href="/login">
+
+                    <i class="fas fa-right-to-bracket"></i>
+
+                    Login
+
+                </a>
+
+
+                <!-- REGISTER -->
+
+                <a href="/register">
+
+                    <i class="fas fa-user-plus"></i>
+
+                    Register
+
+                </a>
+            </div>
+
+        </nav>
+
+        <!-- ================================= -->
+        <!-- HERO SECTION -->
+        <!-- ================================= -->
+
+        <header class="hero-section">
+
+            <!-- HERO LOGO -->
+            <div class="logo">
+
+                <img
+                    src="/static/Logo.png"
+                    alt="Onion AI Logo"
+                    class="hero-logo">
+
+            </div>
+
+            <!-- TITLE -->
+            <h1>
+
+                Onion Disease <br>
+                Detection AI
+
+            </h1>
+
+            <!-- DESCRIPTION -->
+            <p class="description">
+
+                Membantu petani bawang merah mendeteksi penyakit daun
+                lebih cepat menggunakan teknologi Artificial Intelligence
+                untuk meningkatkan kualitas panen dan mengurangi risiko
+                kerusakan tanaman.
+
+            </p>
+
+        </header>
+
+        <!-- ================================= -->
+        <!-- EMPTY STATE -->
+        <!-- ================================= -->
+
+        {% if not prediction %}
+
+        <section class="empty-state">
+
+            <div class="empty-badge">
+
+                <i class="fas fa-robot"></i>
+
+                Smart Agriculture AI
+
+            </div>
+
+            <h3>
+
+                Smart AI Assistant untuk Petani Bawang
+
+            </h3>
+
+            <p>
+
+                Upload gambar daun bawang merah dan biarkan sistem
+                Artificial Intelligence menganalisis kemungkinan penyakit,
+                hama, maupun kondisi tanaman secara otomatis berdasarkan
+                model Deep Learning dan knowledge base pertanian.
+
+            </p>
+
+        </section>
+
+        {% endif %}
+
+        <!-- ================================= -->
+        <!-- FEATURE GRID -->
+        <!-- ================================= -->
+
+        <section class="feature-grid">
+
+            <!-- FEATURE 1 -->
+            <div class="feature-card">
+
+                <div class="feature-icon">
+
+                    <i class="fas fa-brain"></i>
+
+                </div>
+
+                <h3>AI Detection</h3>
+
+                <p>
+
+                    Model Deep Learning modern untuk mendeteksi penyakit
+                    daun bawang merah secara cepat dan akurat.
+
+                </p>
+
+            </div>
+
+            <!-- FEATURE 2 -->
+            <div class="feature-card">
+
+                <div class="feature-icon">
+
+                    <i class="fas fa-leaf"></i>
+
+                </div>
+
+                <h3>Farmer Support</h3>
+
+                <p>
+
+                    Membantu petani memahami gejala penyakit,
+                    pencegahan, serta solusi penanganan tanaman.
+
+                </p>
+
+            </div>
+
+            <!-- FEATURE 3 -->
+            <div class="feature-card">
+
+                <div class="feature-icon">
+
+                    <i class="fas fa-chart-line"></i>
+
+                </div>
+
+                <h3>Fast Analysis</h3>
+
+                <p>
+
+                    Hasil prediksi AI dan informasi penyakit
+                    ditampilkan dalam hitungan detik.
+
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- ================================= -->
+        <!-- UPLOAD SECTION -->
+        <!-- ================================= -->
+
+        <section class="upload-section">
+
+            <form action="/predict"
+                  method="post"
+                  enctype="multipart/form-data">
+
+                <!-- ================================= -->
+                <!-- UPLOAD BOX -->
+                <!-- ================================= -->
+
+                <label for="file-upload"
+                       class="upload-box"
+                       id="upload-box">
+
+                    <div class="upload-glow"></div>
+
+                    <i class="fas fa-cloud-upload-alt upload-icon"></i>
+
+                    <h3 id="upload-title">
+
+                        Upload Gambar Daun Bawang
+
+                    </h3>
+
+                    <p id="upload-subtitle">
+
+                        JPG, PNG, JPEG
+
+                    </p>
+
+                    <!-- STATUS -->
+                    <div class="upload-status"
+                         id="upload-status">
+
+                        <i class="fas fa-file"></i>
+
+                        <span id="file-name">
+
+                            Belum ada file dipilih
+
+                        </span>
+
+                    </div>
+
+                    <!-- INPUT -->
+                    <input type="file"
+                           id="file-upload"
+                           name="file"
+                           accept=".jpg,.jpeg,.png"
+                           required
+                           hidden>
+
+                </label>
+
+                <!-- ================================= -->
+                <!-- IMAGE PREVIEW -->
+                <!-- ================================= -->
+
+                <div class="preview-container"
+                     id="preview-container">
+
+                    <img id="preview-image"
+                         src=""
+                         alt="Preview Image">
+
+                </div>
+
+                <!-- ================================= -->
+                <!-- BUTTON -->
+                <!-- ================================= -->
+
+                <button type="submit"
+                        class="predict-btn"
+                        id="predict-btn">
+
+                    <i class="fas fa-magnifying-glass"></i>
+
+                    Analyze Disease
+
+                </button>
+
+            </form>
+        <!-- ===================================== -->
+        <!-- SMART CHATBOT SECTION -->
+        <!-- ===================================== -->
+
+     <section class="chatbot-section">
+
+        <div class="chatbot-content">
+
+        <div class="chatbot-icon">
+
+            <i class="fas fa-robot"></i>
+
+        </div>
+
+        <h2>
+            Onion AI Smart Chatbot
+        </h2>
+
+        <p>
+
+            Tanya seputar penyakit bawang merah,
+            gejala tanaman,
+            solusi penanganan,
+            hingga rekomendasi pencegahan
+            langsung menggunakan Artificial Intelligence Assistant.
+
+        </p>
+
+        <div class="chatbot-features">
+
+            <div class="chat-feature">
+
+                <i class="fas fa-leaf"></i>
+
+                Disease Knowledge
+
+            </div>
+
+            <div class="chat-feature">
+
+                <i class="fas fa-seedling"></i>
+
+                Smart Farming Support
+
+            </div>
+
+            <div class="chat-feature">
+
+                <i class="fas fa-brain"></i>
+
+                AI Agriculture Assistant
+
+            </div>
+
+        </div>
+
+        <a href="/chatbot"
+            class="chatbot-button">
+
+            <i class="fas fa-comments"></i>
+
+            Open Smart Chatbot
+
+        </a>
+
+        </div>
+
+        </section>
+        </section>
+
+        <!-- ================================= -->
+        <!-- ERROR -->
+        <!-- ================================= -->
+
+        {% if error %}
+
+        <div class="error-box">
+
+            <i class="fas fa-circle-exclamation"></i>
+
+            {{ error }}
+
+        </div>
+
+        {% endif %}
+
+        <!-- ================================= -->
+        <!-- RESULT SECTION -->
+        <!-- ================================= -->
+
+        {% if prediction %}
+
+        <section class="result-section">
+
+            <div class="app-layout">
+
+                <!-- ================================= -->
+                <!-- LEFT IMAGE -->
+                <!-- ================================= -->
+
+                <div class="image-result-card">
+
+                    <div class="image-card-header">
+
+                        <i class="fas fa-image"></i>
+
+                        Gambar yang Dianalisis
+
+                    </div>
+
+                    <img
+                        src="{{ uploaded_image }}"
+                        class="result-image"
+                        alt="Uploaded Image">
+
+                </div>
+
+                <!-- ================================= -->
+                <!-- RIGHT PANEL -->
+                <!-- ================================= -->
+
+                <div class="ai-panel">
+
+                    <!-- AI HEADER -->
+                    <div class="ai-header">
+
+                        <div class="ai-avatar">
+
+                            <i class="fas fa-microchip"></i>
+
+                        </div>
+
+                        <div class="ai-title">
+
+                            Hasil Analisis AI
+
+                        </div>
+
+                    </div>
+
+                    <!-- AI MESSAGE -->
+                    <div class="ai-message">
+
+                        Sistem Artificial Intelligence telah selesai
+                        melakukan analisis terhadap gambar daun bawang
+                        yang diupload berdasarkan pola penyakit,
+                        karakteristik visual daun, dan knowledge base
+                        pertanian bawang merah.
+
+                    </div>
+
+                    <!-- ================================= -->
+                    <!-- INFO GRID -->
+                    <!-- ================================= -->
+
+                    <div class="info-grid">
+
+                        <!-- DISEASE -->
+                        <div class="info-card">
+
+                            <h4>
+
+                                <i class="fas fa-virus"></i>
+
+                                Nama Penyakit
+
+                            </h4>
+
+                            <p>
+
+                                {{ disease_data.display_name }}
+
+                            </p>
+
+                        </div>
+
+                        <!-- CONFIDENCE -->
+                        <div class="info-card">
+
+                            <h4>
+
+                                <i class="fas fa-chart-pie"></i>
+
+                                Confidence AI
+
+                            </h4>
+
+                            <p>
+
+                                {{ confidence }}%
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ================================= -->
+                    <!-- PROGRESS -->
+                    <!-- ================================= -->
+
+                    <div class="progress-bar">
+
+                        <div class="progress-fill"
+                            data-width="{{ confidence }}">
+
+                        </div>
+
+                    </div>
+
+                    <!-- ================================= -->
+                    <!-- KNOWLEDGE SYSTEM -->
+                    <!-- ================================= -->
+
+                    <div class="disease-ai-info">
+
+                        <!-- TITLE -->
+                        <h3>
+
+                            <i class="fas fa-circle-info"></i>
+
+                            Informasi Penyakit AI
+
+                        </h3>
+
+                        <!-- DESC -->
+                        <p class="ai-info-description">
+
+                            Informasi berikut diperoleh dari knowledge
+                            base pertanian bawang merah berbasis jurnal,
+                            penelitian hortikultura, dan referensi
+                            pertanian modern.
+
+                        </p>
+
+                        <!-- ================================= -->
+                        <!-- GRID -->
+                        <!-- ================================= -->
+
+                        <div class="disease-info-grid">
+
+                            <!-- NAMA -->
+                            <div class="disease-box">
+
+                                <span>
+
+                                    Nama Penyakit
+
+                                </span>
+
+                                {{ disease_data.display_name }}
+
+                            </div>
+
+                            <!-- ENGLISH -->
+                            <div class="disease-box">
+
+                                <span>
+
+                                    Nama Internasional
+
+                                </span>
+
+                                {{ disease_data.english_name }}
+
+                            </div>
+
+                            <!-- ILMIAH -->
+                            <div class="disease-box">
+
+                                <span>
+
+                                    Nama Ilmiah
+
+                                </span>
+
+                                {{ disease_data.scientific_name }}
+
+                            </div>
+
+                            <!-- KATEGORI -->
+                            <div class="disease-box">
+
+                                <span>
+
+                                    Kategori
+
+                                </span>
+
+                                {{ disease_data.category }}
+
+                            </div>
+
+                            <!-- RISIKO -->
+                            <div class="disease-box">
+
+                                <span>
+
+                                    Tingkat Risiko
+
+                                </span>
+
+                                {{ disease_data.risk }}
+
+                            </div>
+
+                            <!-- PENYEBAB -->
+                            <div class="disease-box full-width">
+
+                                <span>
+
+                                    Penyebab
+
+                                </span>
+
+                                {{ disease_data.cause }}
+
+                            </div>
+
+                            <!-- GEJALA -->
+                            <div class="disease-box full-width">
+
+                                <span>
+
+                                    Gejala Penyakit
+
+                                </span>
+
+                                {{ disease_data.symptoms }}
+
+                            </div>
+
+                            <!-- DAMPAK -->
+                            <div class="disease-box full-width">
+
+                                <span>
+
+                                    Dampak Pada Tanaman
+
+                                </span>
+
+                                {{ disease_data.impact }}
+
+                            </div>
+
+                            <!-- PENCEGAHAN -->
+                            <div class="disease-box full-width">
+
+                                <span>
+
+                                    Pencegahan
+
+                                </span>
+
+                                {{ disease_data.prevention }}
+
+                            </div>
+
+                            <!-- SOLUSI -->
+                            <div class="disease-box full-width">
+
+                                <span>
+
+                                    Solusi Penanganan
+
+                                </span>
+
+                                {{ disease_data.solution }}
+
+                            </div>
+
+                            <!-- PESTISIDA -->
+                            <div class="disease-box full-width">
+
+                                <span>
+
+                                    Rekomendasi Pestisida
+
+                                </span>
+
+                                {{ disease_data.pesticide }}
+
+                            </div>
+
+                            <!-- BAHAN AKTIF -->
+                            <div class="disease-box full-width">
+
+                                <span>
+
+                                    Bahan Aktif
+
+                                </span>
+
+                                {{ disease_data.active_ingredient }}
+
+                            </div>
+
+                            <!-- PENGGUNAAN -->
+                            <div class="disease-box full-width">
+
+                                <span>
+
+                                    Cara Penggunaan
+
+                                </span>
+
+                                {{ disease_data.usage }}
+
+                            </div>
+
+                            <!-- CATATAN -->
+                            <div class="disease-box full-width">
+
+                                <span>
+
+                                    Catatan Tambahan
+
+                                </span>
+
+                                {{ disease_data.notes }}
+
+                            </div>
+
+                        </div>
+
+                        <!-- ================================= -->
+                        <!-- RECOMMENDATION -->
+                        <!-- ================================= -->
+
+                        <div class="ai-recommendation-box">
+
+                            <div class="recommendation-header">
+
+                                <i class="fas fa-robot"></i>
+
+                                Rekomendasi AI
+
+                            </div>
+
+                            <p>
+
+                                Berdasarkan hasil analisis AI,
+                                petani disarankan melakukan
+                                pemantauan rutin terhadap kondisi
+                                tanaman, menjaga kelembapan lahan,
+                                dan melakukan pengendalian penyakit
+                                lebih awal untuk mengurangi risiko
+                                gagal panen.
+
+                            </p>
+
+                        </div>
+
+                        <!-- ================================= -->
+                        <!-- DISCLAIMER -->
+                        <!-- ================================= -->
+
+                        <div class="ai-disclaimer">
+
+                            <i class="fas fa-triangle-exclamation"></i>
+
+                            Hasil AI merupakan prediksi berbasis
+                            model Deep Learning dan knowledge base
+                            pertanian. Untuk tindakan lebih lanjut,
+                            disarankan berkonsultasi dengan penyuluh
+                            pertanian setempat.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        {% endif %}
+
+        <!-- ================================= -->
+        <!-- FOOTER -->
+        <!-- ================================= -->
+
+        <footer class="footer">
+
+            <i class="fas fa-code"></i>
+
+            Built with FastAPI, Deep Learning,
+            and ONNX Runtime
+
+        </footer>
+
+    </div>
+
+    <!-- ===================================== -->
+    <!-- JAVASCRIPT -->
+    <!-- ===================================== -->
+
+    <script src="/static/script.js"></script>
+
+<!-- ===================================== -->
+<!-- FLOATING CHATBOT BUTTON -->
+<!-- ===================================== -->
+
+<a href="/chatbot"
+   class="floating-chatbot">
+
+    <i class="fas fa-robot"></i>
+
+</a>
+</body>
+
+</html>
