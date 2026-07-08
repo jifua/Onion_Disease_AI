@@ -608,7 +608,7 @@ async def Chatbot(request: Request):
 async def chatbot_page(request: Request):
 
     return templates.TemplateResponse(
-        "chatbot.html",
+        "Chatbot.html",
         {
             "request": request
         }
