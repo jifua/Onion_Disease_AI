@@ -7,6 +7,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
+RUN mkdir -p assets uploads
 
 # Hugging Face Spaces expects the app to listen on port 7860
 EXPOSE 7860
